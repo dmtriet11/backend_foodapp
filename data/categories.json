@@ -1,0 +1,7 @@
+[
+  { "id": 1, "type": "dry" },
+  { "id": 2, "type": "soup" },
+  { "id": 3, "type": "vegetarian" },
+  { "id": 4, "type": "salty" },
+  { "id": 5, "type": "seafood" }
+]

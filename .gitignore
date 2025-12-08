@@ -1,0 +1,49 @@
+# --- Bí Mật & Credentials ---
+# Ẩn file biến môi trường
+.env
+File.env
+
+# Ẩn các file service account key (ví dụ: Firebase, Google Cloud)
+*-firebase-adminsdk-*.json
+serviceAccountKey.json
+firebase_auth.json
+
+# --- Python ---
+# Bỏ qua các thư mục cache do Python tự tạo
+__pycache__/
+*.pyc
+
+# Bỏ qua thư mục môi trường ảo (virtual environment)
+venv/
+.venv/
+env/
+
+# --- Hệ Điều Hành (OS) ---
+.DS_Store
+Thumbs.db
+
+# --- Khác ---
+*.exe
+build/
+release/
+debug/
+
+# --- Large Data Files ---
+# Bỏ qua file OSM pbf (quá lớn cho GitHub)
+*.pbf
+*.osm.pbf
+vietnam-*.osm.pbf
+
+# Bỏ qua file CSV chứa place_id
+*.csv
+
+# Bỏ qua folder placeID
+placeID/
+
+# Bỏ qua các file backup
+*_backup.json
+*_backup_*.json
+
+# --- IDE ---
+.vscode/
+
