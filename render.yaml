@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: food-app-backend
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn App:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: FIREBASE_DB_URL
+        sync: false
+      - key: SENDER_EMAIL
+        sync: false
+      - key: SENDER_APP_PASSWORD
+        sync: false

@@ -39,5 +39,8 @@ app.register_blueprint(map_bp, url_prefix="/api")
 
 
 if __name__ == '__main__':
-    print("🚀 Khởi động Flask app trên port 5000...")
-    app.run(host='0.0.0.0', port=5000, debug=True, use_reloader=False)
+    import os
+    port = int(os.environ.get('PORT', 5000))
+    debug_mode = os.environ.get('FLASK_ENV') != 'production'
+    print(f"🚀 Khởi động Flask app trên port {port}...")
+    app.run(host='0.0.0.0', port=port, debug=debug_mode, use_reloader=False)
