@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask
 from flask_cors import CORS
 
 
@@ -16,21 +16,6 @@ from routes.map import map_bp
 app = Flask(__name__)
 CORS(app)
 
-# Root endpoint
-@app.route('/', methods=['GET'])
-def home():
-    return jsonify({
-        "message": "🍜 Food App Backend API",
-        "version": "1.0",
-        "status": "running",
-        "documentation": "/api/docs (coming soon)",
-        "endpoints": {
-            "user": "/api/login, /api/register, /api/profile",
-            "food": "/api/restaurants, /api/search, /api/foods",
-            "chatbot": "/api/chat",
-            "map": "/api/map/filter"
-        }
-    }), 200
 
 app.register_blueprint(food_bp, url_prefix='/api')
 app.register_blueprint(user_bp, url_prefix='/api')
@@ -39,8 +24,5 @@ app.register_blueprint(map_bp, url_prefix="/api")
 
 
 if __name__ == '__main__':
-    import os
-    port = int(os.environ.get('PORT', 5000))
-    debug_mode = os.environ.get('FLASK_ENV') != 'production'
-    print(f"🚀 Khởi động Flask app trên port {port}...")
-    app.run(host='0.0.0.0', port=port, debug=debug_mode, use_reloader=False)
+    print("🚀 Khởi động Flask app trên port 5000...")
+    app.run(host='0.0.0.0', port=5000, debug=True, use_reloader=False)
