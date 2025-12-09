@@ -12,8 +12,14 @@ from flask import request # ⭐️ BỔ SUNG: Import request để sử dụng t
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ENV_PATH = os.path.join(BASE_DIR, ".env")
 USERS_PATH = os.path.join(BASE_DIR, "data", "users.json")
-KEY_PATH = os.path.join(BASE_DIR, "firebase_auth.json")
-print(f":mag: Loading env from: {ENV_PATH}")
+
+# Firebase credentials path - check Render secret file first, fallback to local
+KEY_PATH = os.getenv('FIREBASE_KEY_PATH', '/etc/secrets/firebase_auth.json')
+if not os.path.exists(KEY_PATH):
+    KEY_PATH = os.path.join(BASE_DIR, "firebase_auth.json")
+print(f"🔑 Firebase key path: {KEY_PATH}")
+
+print(f"📁 Loading env from: {ENV_PATH}")
 load_dotenv(ENV_PATH)
 
 # Lấy biến môi trường
